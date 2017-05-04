@@ -9,6 +9,7 @@
 import UIKit
 import Panel
 import Firebase
+import FBSDKCoreKit
 import FBSDKLoginKit
 
 class SettingsVC: UIViewController {
@@ -28,6 +29,19 @@ class SettingsVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "first_name, last_name"], httpMethod: "GET").start(completionHandler: { (connection, result, error) in
+            
+            if let error = error {
+                print("DONKEY: Error trying to get info from Facebook: \(error.localizedDescription)")
+            } else if let resultDictionary = result as? Dictionary<String, AnyObject> {
+                
+                self.profileFirstName.text = resultDictionary["first_name"] as? String
+                self.profileLastName.text = resultDictionary["last_name"] as? String
+            }
+        })
     }
 
     // MARK: - UI Actions

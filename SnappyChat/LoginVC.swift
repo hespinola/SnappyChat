@@ -40,7 +40,7 @@ class LoginVC: UIViewController {
     // MARK: - UI Actions
     @IBAction func loginBtnTapped(_ sender: Any) {
         let facebookLogin = FBSDKLoginManager()
-        facebookLogin.logIn(withReadPermissions: ["email"], from: self, handler: { (result, error) in
+        facebookLogin.logIn(withReadPermissions: ["public_profile"], from: self, handler: { (result, error) in
             if let error = error {
                 print("DONKEY: Couldn't authenticate with Facebook\(error.localizedDescription)")
             } else if (result?.isCancelled)! {
