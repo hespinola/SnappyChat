@@ -1,0 +1,6 @@
+framework module Pods_SnappyChat {
+  umbrella header "Pods-SnappyChat-umbrella.h"
+
+  export *
+  module * { export * }
+}

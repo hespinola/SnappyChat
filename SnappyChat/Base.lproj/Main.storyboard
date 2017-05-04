@@ -1,26 +1,593 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--ChatsVC-->
+        <scene sceneID="yG5-sK-qux">
+            <objects>
+                <viewController storyboardIdentifier="ChatsVC" id="jpf-fb-xE4" customClass="ChatsVC" customModule="SnappyChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8en-fd-2zd"/>
+                        <viewControllerLayoutGuide type="bottom" id="MEU-nL-aov"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UcG-TO-PPD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTr-Rk-v38">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbN-JZ-51l">
+                                        <rect key="frame" x="8" y="20" width="19" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="19" id="X3A-m0-DZX"/>
+                                            <constraint firstAttribute="height" constant="22" id="hck-Fu-sf7"/>
+                                        </constraints>
+                                        <state key="normal" image="chatwith_btn"/>
+                                        <connections>
+                                            <action selector="newChatButtonTapped:" destination="jpf-fb-xE4" eventType="touchUpInside" id="zYf-ag-KMI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKG-qQ-JQQ">
+                                        <rect key="frame" x="289" y="20" width="23" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="3Vn-lC-gJY"/>
+                                            <constraint firstAttribute="width" constant="23" id="gHs-4O-0PI"/>
+                                        </constraints>
+                                        <state key="normal" image="new_snap_btn"/>
+                                        <connections>
+                                            <action selector="newSnapButtonTapped:" destination="jpf-fb-xE4" eventType="touchUpInside" id="4Kq-uc-7Zy"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SnappySnap" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ReD-Mz-nLz">
+                                        <rect key="frame" x="97" y="14" width="127" height="31"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ReD-Mz-nLz" firstAttribute="centerX" secondItem="UTr-Rk-v38" secondAttribute="centerX" id="0kV-pU-bFN"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="aKG-qQ-JQQ" secondAttribute="trailing" id="Ah5-iY-XxH"/>
+                                    <constraint firstItem="wbN-JZ-51l" firstAttribute="bottom" secondItem="UTr-Rk-v38" secondAttribute="bottomMargin" id="D1X-jL-M1h"/>
+                                    <constraint firstAttribute="height" constant="50" id="EbP-dB-so5"/>
+                                    <constraint firstAttribute="bottom" secondItem="ReD-Mz-nLz" secondAttribute="bottom" constant="5" id="HBH-yE-e9K"/>
+                                    <constraint firstItem="aKG-qQ-JQQ" firstAttribute="bottom" secondItem="UTr-Rk-v38" secondAttribute="bottomMargin" id="Tfl-sK-yhD"/>
+                                    <constraint firstItem="wbN-JZ-51l" firstAttribute="leading" secondItem="UTr-Rk-v38" secondAttribute="leadingMargin" id="oWZ-mq-egG"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tc1-hw-UKK" customClass="SearchTextField" customModule="SnappyChat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="320" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="TFU-oD-mAw"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="search_glass_icon"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftViewLeftPadding">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="textRectLeftPadding">
+                                        <real key="value" value="48"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="textRectRightPadding">
+                                        <real key="value" value="32"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BQb-kC-UED">
+                                <rect key="frame" x="0.0" y="90" width="320" height="478"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" rowHeight="40" id="EOA-U3-fWK">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EOA-U3-fWK" id="32t-ej-Kke">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="39.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MEU-nL-aov" firstAttribute="top" secondItem="BQb-kC-UED" secondAttribute="bottom" id="0wY-eg-HMN"/>
+                            <constraint firstAttribute="trailing" secondItem="UTr-Rk-v38" secondAttribute="trailing" id="H7B-JO-yjM"/>
+                            <constraint firstAttribute="trailing" secondItem="tc1-hw-UKK" secondAttribute="trailing" id="SNw-Rb-Ahz"/>
+                            <constraint firstAttribute="trailing" secondItem="BQb-kC-UED" secondAttribute="trailing" id="Y5u-Ew-qdx"/>
+                            <constraint firstItem="UTr-Rk-v38" firstAttribute="centerX" secondItem="UcG-TO-PPD" secondAttribute="centerX" id="aFV-35-f00"/>
+                            <constraint firstItem="BQb-kC-UED" firstAttribute="leading" secondItem="UcG-TO-PPD" secondAttribute="leading" id="aYu-Ip-9RH"/>
+                            <constraint firstItem="UTr-Rk-v38" firstAttribute="leading" secondItem="UcG-TO-PPD" secondAttribute="leading" id="kem-bT-zIH"/>
+                            <constraint firstItem="tc1-hw-UKK" firstAttribute="leading" secondItem="UcG-TO-PPD" secondAttribute="leading" id="vKY-OQ-XDN"/>
+                            <constraint firstItem="UTr-Rk-v38" firstAttribute="top" secondItem="UcG-TO-PPD" secondAttribute="top" id="wAC-BJ-M34"/>
+                            <constraint firstItem="tc1-hw-UKK" firstAttribute="top" secondItem="UTr-Rk-v38" secondAttribute="bottom" id="wHH-2w-KvK"/>
+                            <constraint firstItem="BQb-kC-UED" firstAttribute="top" secondItem="tc1-hw-UKK" secondAttribute="bottom" id="zVs-IN-Bky"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="newChatButton" destination="wbN-JZ-51l" id="kfX-xH-9aK"/>
+                        <outlet property="newSnapButton" destination="aKG-qQ-JQQ" id="lXQ-dz-mfT"/>
+                        <outlet property="searchField" destination="tc1-hw-UKK" id="31C-b8-Nd5"/>
+                        <outlet property="tableView" destination="BQb-kC-UED" id="qnc-ao-vdP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VZu-2k-hl3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-888.75" y="36.971830985915496"/>
+        </scene>
+        <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="SnappyChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="JUU-j5-74C" kind="show" identifier="LoginVC" id="SK2-IG-5Ub"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="31.875" y="788.02816901408448"/>
+        </scene>
+        <!--Edit ImageVC-->
+        <scene sceneID="XwT-24-0rR">
+            <objects>
+                <viewController storyboardIdentifier="EditImageVC" id="xSD-50-4ro" customClass="EditImageVC" customModule="SnappyChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="avt-wj-6HX"/>
+                        <viewControllerLayoutGuide type="bottom" id="dFq-II-UKf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n0E-zK-Csz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6ee-FO-aja">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bPH-Dj-a7e">
+                                <rect key="frame" x="0.0" y="269" width="320" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Rdw-Rf-lGi"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="done"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEK-LY-Wv9">
+                                <rect key="frame" x="16" y="36" width="24" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="M29-vE-aZ5"/>
+                                    <constraint firstAttribute="height" constant="28" id="NUf-ME-JuG"/>
+                                </constraints>
+                                <state key="normal" image="re_snap_btn"/>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="xSD-50-4ro" eventType="touchUpInside" id="R3v-3L-cHF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kV0-Kx-m6A">
+                                <rect key="frame" x="280" y="529" width="24" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="ZqR-x0-nuH"/>
+                                    <constraint firstAttribute="height" constant="23" id="vjd-3p-HMT"/>
+                                </constraints>
+                                <state key="normal" image="send_snap"/>
+                                <connections>
+                                    <action selector="sendButtonTapped:" destination="xSD-50-4ro" eventType="touchUpInside" id="eeY-GQ-fgW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEq-Cm-Sje">
+                                <rect key="frame" x="16" y="527" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="WJC-ji-Xlq"/>
+                                    <constraint firstAttribute="width" constant="25" id="gUu-xh-RUb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="10"/>
+                                <state key="normal" image="timer_btn"/>
+                                <connections>
+                                    <action selector="timerButtonTapped:" destination="xSD-50-4ro" eventType="touchUpInside" id="O8h-P4-p3N"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDc-E0-6me">
+                                <rect key="frame" x="57" y="528" width="21" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="4yO-lA-YFP"/>
+                                    <constraint firstAttribute="width" constant="21" id="mU8-bm-WUs"/>
+                                </constraints>
+                                <state key="normal" image="download_snap"/>
+                                <connections>
+                                    <action selector="downloadSnapButtonTapped:" destination="xSD-50-4ro" eventType="touchUpInside" id="PGb-fC-LHi"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdc-ZD-zeC">
+                                <rect key="frame" x="22" y="533.5" width="13" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="3I5-kA-0xr"/>
+                                    <constraint firstAttribute="width" constant="13" id="JK8-WI-Ysg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uat-dO-esd">
+                                <rect key="frame" x="0.0" y="352" width="320" height="216"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="9QK-vp-MNE"/>
+                                </constraints>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jdc-ZD-zeC" firstAttribute="centerY" secondItem="vEq-Cm-Sje" secondAttribute="centerY" constant="1" id="1wB-MK-EOR"/>
+                            <constraint firstItem="dFq-II-UKf" firstAttribute="top" secondItem="kV0-Kx-m6A" secondAttribute="bottom" constant="16" id="21I-9e-eQ3"/>
+                            <constraint firstItem="vEq-Cm-Sje" firstAttribute="leading" secondItem="n0E-zK-Csz" secondAttribute="leading" constant="16" id="3Mo-B6-uVe"/>
+                            <constraint firstItem="dFq-II-UKf" firstAttribute="top" secondItem="vEq-Cm-Sje" secondAttribute="bottom" constant="16" id="AgH-DH-eQv"/>
+                            <constraint firstItem="KEK-LY-Wv9" firstAttribute="top" secondItem="avt-wj-6HX" secondAttribute="bottom" constant="16" id="Cuy-RV-9zp"/>
+                            <constraint firstItem="bPH-Dj-a7e" firstAttribute="centerX" secondItem="n0E-zK-Csz" secondAttribute="centerX" id="Gl6-hC-V3Q"/>
+                            <constraint firstItem="uDc-E0-6me" firstAttribute="leading" secondItem="vEq-Cm-Sje" secondAttribute="trailing" constant="16" id="KaI-3u-HIq"/>
+                            <constraint firstAttribute="trailing" secondItem="kV0-Kx-m6A" secondAttribute="trailing" constant="16" id="M26-i5-IvL"/>
+                            <constraint firstAttribute="trailing" secondItem="uat-dO-esd" secondAttribute="trailing" id="PJ6-BG-WWO"/>
+                            <constraint firstItem="KEK-LY-Wv9" firstAttribute="leading" secondItem="n0E-zK-Csz" secondAttribute="leading" constant="16" id="Stk-yo-D7G"/>
+                            <constraint firstItem="bPH-Dj-a7e" firstAttribute="centerY" secondItem="n0E-zK-Csz" secondAttribute="centerY" id="c5H-F9-lZL"/>
+                            <constraint firstItem="jdc-ZD-zeC" firstAttribute="centerX" secondItem="vEq-Cm-Sje" secondAttribute="centerX" id="cG9-CA-4fg"/>
+                            <constraint firstAttribute="trailing" secondItem="6ee-FO-aja" secondAttribute="trailing" id="gnV-jd-z32"/>
+                            <constraint firstItem="bPH-Dj-a7e" firstAttribute="leading" secondItem="n0E-zK-Csz" secondAttribute="leading" id="jQQ-7N-6CY"/>
+                            <constraint firstItem="6ee-FO-aja" firstAttribute="top" secondItem="n0E-zK-Csz" secondAttribute="top" id="jpT-a4-8LL"/>
+                            <constraint firstItem="dFq-II-UKf" firstAttribute="top" secondItem="uDc-E0-6me" secondAttribute="bottom" constant="16" id="lBw-YC-9VA"/>
+                            <constraint firstItem="dFq-II-UKf" firstAttribute="top" secondItem="6ee-FO-aja" secondAttribute="bottom" id="mz9-cg-g6S"/>
+                            <constraint firstItem="6ee-FO-aja" firstAttribute="leading" secondItem="n0E-zK-Csz" secondAttribute="leading" id="sO0-qM-uZ6"/>
+                            <constraint firstItem="dFq-II-UKf" firstAttribute="top" secondItem="uat-dO-esd" secondAttribute="bottom" id="vVh-Vq-bq2"/>
+                            <constraint firstAttribute="trailing" secondItem="bPH-Dj-a7e" secondAttribute="trailing" id="vkP-Gb-GGr"/>
+                            <constraint firstItem="uat-dO-esd" firstAttribute="leading" secondItem="n0E-zK-Csz" secondAttribute="leading" id="yzf-oI-hF7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="KEK-LY-Wv9" id="wEH-oQ-uhM"/>
+                        <outlet property="downloadSnap" destination="uDc-E0-6me" id="sRk-mG-fOA"/>
+                        <outlet property="imageCaption" destination="bPH-Dj-a7e" id="YDc-0E-ijG"/>
+                        <outlet property="imageCaptionYConstraint" destination="c5H-F9-lZL" id="DdF-XQ-Bac"/>
+                        <outlet property="imageView" destination="6ee-FO-aja" id="3xt-Sv-0ep"/>
+                        <outlet property="sendButton" destination="kV0-Kx-m6A" id="prg-ff-l8o"/>
+                        <outlet property="timePicker" destination="uat-dO-esd" id="3wB-4N-OGj"/>
+                        <outlet property="timePickerBottomConstraint" destination="vVh-Vq-bq2" id="dHs-OL-D4x"/>
+                        <outlet property="timerButton" destination="vEq-Cm-Sje" id="tWy-w2-c3S"/>
+                        <outlet property="timerLabel" destination="jdc-ZD-zeC" id="HtQ-rh-MjQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mv8-qG-xDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="31.875" y="-713.02816901408448"/>
+        </scene>
+        <!--CameraVC-->
+        <scene sceneID="WG7-7k-T8r">
+            <objects>
+                <viewController storyboardIdentifier="CameraVC" id="vFT-8h-evt" customClass="CameraVC" customModule="SnappyChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zik-1x-aLf"/>
+                        <viewControllerLayoutGuide type="bottom" id="buK-cG-TYO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Yj-4P-wgk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OuS-rp-YCZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWd-f2-6bW">
+                                <rect key="frame" x="133" y="474" width="54" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="HaI-Vy-Mgw"/>
+                                    <constraint firstAttribute="width" constant="54" id="KCw-zv-uTX"/>
+                                </constraints>
+                                <state key="normal" image="snap_btn"/>
+                                <connections>
+                                    <action selector="snapButtonTapped:" destination="vFT-8h-evt" eventType="touchUpInside" id="6bb-Rt-B8c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSe-Sf-4JA">
+                                <rect key="frame" x="16" y="36" width="24" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="Gk7-cg-uET"/>
+                                    <constraint firstAttribute="height" constant="30" id="bNy-4t-9zp"/>
+                                </constraints>
+                                <state key="normal" image="flash_auto_btn"/>
+                                <connections>
+                                    <action selector="flashButtonTapped:" destination="vFT-8h-evt" eventType="touchUpInside" id="my5-fE-3cS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdL-FX-Bwf">
+                                <rect key="frame" x="267" y="36" width="37" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="HJX-nV-mvP"/>
+                                    <constraint firstAttribute="width" constant="37" id="tox-4c-8l9"/>
+                                </constraints>
+                                <state key="normal" image="camera_icon_snap"/>
+                                <connections>
+                                    <action selector="changeCameraButtonTapped:" destination="vFT-8h-evt" eventType="touchUpInside" id="jCx-Nw-VqA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hdL-FX-Bwf" secondAttribute="trailing" constant="16" id="0BM-4j-tfB"/>
+                            <constraint firstItem="buK-cG-TYO" firstAttribute="top" secondItem="zWd-f2-6bW" secondAttribute="bottom" constant="32" id="0Ky-kH-TTa"/>
+                            <constraint firstAttribute="trailing" secondItem="OuS-rp-YCZ" secondAttribute="trailing" id="0iE-5B-HbT"/>
+                            <constraint firstItem="vSe-Sf-4JA" firstAttribute="top" secondItem="zik-1x-aLf" secondAttribute="bottom" constant="16" id="4HH-RA-Rbb"/>
+                            <constraint firstItem="buK-cG-TYO" firstAttribute="top" secondItem="OuS-rp-YCZ" secondAttribute="bottom" id="Mfn-07-Q2M"/>
+                            <constraint firstItem="vSe-Sf-4JA" firstAttribute="leading" secondItem="1Yj-4P-wgk" secondAttribute="leading" constant="16" id="TTI-rf-rfc"/>
+                            <constraint firstItem="hdL-FX-Bwf" firstAttribute="top" secondItem="zik-1x-aLf" secondAttribute="bottom" constant="16" id="dhJ-PD-UmC"/>
+                            <constraint firstItem="OuS-rp-YCZ" firstAttribute="top" secondItem="1Yj-4P-wgk" secondAttribute="top" id="kes-Se-gck"/>
+                            <constraint firstItem="OuS-rp-YCZ" firstAttribute="leading" secondItem="1Yj-4P-wgk" secondAttribute="leading" id="pc4-38-wFj"/>
+                            <constraint firstItem="zWd-f2-6bW" firstAttribute="centerX" secondItem="1Yj-4P-wgk" secondAttribute="centerX" id="vkn-td-Cx9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cameraView" destination="OuS-rp-YCZ" id="acK-p5-KVa"/>
+                        <outlet property="changeCameraButton" destination="hdL-FX-Bwf" id="lvD-Ws-d7I"/>
+                        <outlet property="flashButton" destination="vSe-Sf-4JA" id="QYD-KC-fWy"/>
+                        <outlet property="snapButton" destination="zWd-f2-6bW" id="aKx-bi-IJf"/>
+                        <segue destination="xSD-50-4ro" kind="show" identifier="EditImageVC" id="iqv-YQ-bDT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ozT-Le-XQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="31.875" y="36.971830985915496"/>
+        </scene>
+        <!--SettingsVC-->
+        <scene sceneID="gpe-HL-LZp">
+            <objects>
+                <viewController storyboardIdentifier="SettingsVC" id="8iO-a7-9fb" customClass="SettingsVC" customModule="SnappyChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0KW-D3-ZVD"/>
+                        <viewControllerLayoutGuide type="bottom" id="iIN-Df-DFR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dIv-19-EQ0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="sAn-iX-6dl">
+                                <rect key="frame" x="0.0" y="50" width="320" height="518"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQ0-EA-O5X">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SnappySnap" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wi-Kh-rST">
+                                        <rect key="frame" x="97" y="14" width="127" height="31"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhs-XJ-L0J">
+                                        <rect key="frame" x="8" y="20" width="23" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="23" id="RBu-LX-vmN"/>
+                                            <constraint firstAttribute="height" constant="22" id="e8A-UQ-K1z"/>
+                                        </constraints>
+                                        <state key="normal" image="new_snap_btn"/>
+                                        <connections>
+                                            <action selector="newSnapButtonTapped:" destination="8iO-a7-9fb" eventType="touchUpInside" id="Ae5-fj-Awh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="DIf-3R-iNa"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Rd0-xX-TRH"/>
+                                    <constraint firstItem="vhs-XJ-L0J" firstAttribute="leading" secondItem="MQ0-EA-O5X" secondAttribute="leadingMargin" id="VV3-89-plF"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="vhs-XJ-L0J" secondAttribute="bottom" id="XuY-aK-akI"/>
+                                    <constraint firstAttribute="bottom" secondItem="7wi-Kh-rST" secondAttribute="bottom" constant="5" id="cli-49-Uy5"/>
+                                    <constraint firstItem="7wi-Kh-rST" firstAttribute="centerX" secondItem="MQ0-EA-O5X" secondAttribute="centerX" id="dlS-e5-7SO"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wtg-2e-AWB" customClass="RoundedButton" customModule="SnappyChat" customModuleProvider="target">
+                                <rect key="frame" x="41" y="264" width="238" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="238" id="2PC-pL-NOr"/>
+                                    <constraint firstAttribute="height" constant="40" id="ovZ-64-9Mi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginBtnTapped:" destination="JUU-j5-74C" eventType="touchUpInside" id="lIc-04-1tV"/>
+                                    <action selector="logoutButtonTapped:" destination="8iO-a7-9fb" eventType="touchUpInside" id="XX8-iB-65h"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slapchat_icon" translatesAutoresizingMaskIntoConstraints="NO" id="9Fx-91-UYR" customClass="RoundedImageView" customModule="SnappyChat" customModuleProvider="target">
+                                <rect key="frame" x="16" y="82" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="1hg-uV-ECL"/>
+                                    <constraint firstAttribute="width" constant="80" id="lI1-uo-yaE"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vM-2C-cil">
+                                <rect key="frame" x="112" y="98" width="192" height="25"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdd-14-wI4">
+                                <rect key="frame" x="112" y="131" width="192" height="25"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iIN-Df-DFR" firstAttribute="top" secondItem="sAn-iX-6dl" secondAttribute="bottom" id="5N9-ui-gFB"/>
+                            <constraint firstItem="wtg-2e-AWB" firstAttribute="centerY" secondItem="dIv-19-EQ0" secondAttribute="centerY" id="5YF-Vt-iuH"/>
+                            <constraint firstAttribute="trailing" secondItem="sAn-iX-6dl" secondAttribute="trailing" id="5xC-7v-OaR"/>
+                            <constraint firstItem="Wdd-14-wI4" firstAttribute="leading" secondItem="9Fx-91-UYR" secondAttribute="trailing" constant="16" id="CpO-zh-Xso"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Wdd-14-wI4" secondAttribute="trailing" id="FRo-uu-Ofb"/>
+                            <constraint firstItem="MQ0-EA-O5X" firstAttribute="top" secondItem="dIv-19-EQ0" secondAttribute="top" id="Itc-wt-DPM"/>
+                            <constraint firstItem="sAn-iX-6dl" firstAttribute="leading" secondItem="dIv-19-EQ0" secondAttribute="leading" id="LXR-Mr-4Mw"/>
+                            <constraint firstAttribute="trailing" secondItem="MQ0-EA-O5X" secondAttribute="trailing" id="Odt-jD-ta4"/>
+                            <constraint firstItem="9Fx-91-UYR" firstAttribute="leading" secondItem="dIv-19-EQ0" secondAttribute="leadingMargin" id="VIL-oP-7F9"/>
+                            <constraint firstItem="Wdd-14-wI4" firstAttribute="top" secondItem="3vM-2C-cil" secondAttribute="bottom" constant="8" id="YYN-W4-O6r"/>
+                            <constraint firstItem="3vM-2C-cil" firstAttribute="top" secondItem="MQ0-EA-O5X" secondAttribute="bottom" constant="48" id="ZBx-Qm-sat"/>
+                            <constraint firstItem="9Fx-91-UYR" firstAttribute="top" secondItem="MQ0-EA-O5X" secondAttribute="bottom" constant="32" id="d2Y-mf-Lrc"/>
+                            <constraint firstItem="sAn-iX-6dl" firstAttribute="top" secondItem="MQ0-EA-O5X" secondAttribute="bottom" id="e5S-pL-9qT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3vM-2C-cil" secondAttribute="trailing" id="krc-6m-vry"/>
+                            <constraint firstItem="MQ0-EA-O5X" firstAttribute="leading" secondItem="dIv-19-EQ0" secondAttribute="leading" id="vo3-m4-FsW"/>
+                            <constraint firstItem="3vM-2C-cil" firstAttribute="leading" secondItem="9Fx-91-UYR" secondAttribute="trailing" constant="16" id="xlb-bo-tsr"/>
+                            <constraint firstItem="wtg-2e-AWB" firstAttribute="centerX" secondItem="dIv-19-EQ0" secondAttribute="centerX" id="zI3-oK-qLq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="logoutButton" destination="wtg-2e-AWB" id="9wx-ye-PMI"/>
+                        <outlet property="newSnapButton" destination="vhs-XJ-L0J" id="SZJ-QE-yVq"/>
+                        <outlet property="profileFirstName" destination="3vM-2C-cil" id="4S8-D6-ymY"/>
+                        <outlet property="profileImage" destination="9Fx-91-UYR" id="CVZ-qk-Wc3"/>
+                        <outlet property="profileLastName" destination="Wdd-14-wI4" id="e6u-Sa-lpB"/>
+                        <segue destination="JUU-j5-74C" kind="show" identifier="LoginVC" id="T6O-G4-Q64"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="to7-VO-Qni" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948.75" y="36.971830985915496"/>
+        </scene>
+        <!--LoginVC-->
+        <scene sceneID="I7h-zk-3Qu">
+            <objects>
+                <viewController storyboardIdentifier="LoginVC" id="JUU-j5-74C" customClass="LoginVC" customModule="SnappyChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nO9-FS-ZiM"/>
+                        <viewControllerLayoutGuide type="bottom" id="LMh-YI-u3E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="B8E-0w-VNX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="people-mother-family-father" translatesAutoresizingMaskIntoConstraints="NO" id="OV4-AR-0h9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GoF-hq-H4G">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snappysnap_logo" translatesAutoresizingMaskIntoConstraints="NO" id="dCR-LV-j6n">
+                                <rect key="frame" x="44.5" y="134" width="231" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="231" id="3WR-td-Dyv"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="66" id="aoy-XG-7fj"/>
+                                    <constraint firstAttribute="width" constant="231" id="frj-cO-Drz"/>
+                                    <constraint firstAttribute="height" constant="66" id="kNH-xn-lWn"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ab-M5-Q7A" customClass="RoundedButton" customModule="SnappyChat" customModuleProvider="target">
+                                <rect key="frame" x="41" y="264" width="238" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Xay-DJ-GTN"/>
+                                    <constraint firstAttribute="width" constant="238" id="pXV-0d-91K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                                <state key="normal" title="Facebook Login">
+                                    <color key="titleColor" red="0.0" green="0.63529411759999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginBtnTapped:" destination="JUU-j5-74C" eventType="touchUpInside" id="kW7-Cp-U9Y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OV4-AR-0h9" firstAttribute="leading" secondItem="B8E-0w-VNX" secondAttribute="leading" id="79T-oP-EJZ"/>
+                            <constraint firstItem="OV4-AR-0h9" firstAttribute="top" secondItem="B8E-0w-VNX" secondAttribute="top" id="8Qt-SA-PqD"/>
+                            <constraint firstItem="3Ab-M5-Q7A" firstAttribute="top" secondItem="dCR-LV-j6n" secondAttribute="bottom" constant="64" id="Smt-Ax-9M3"/>
+                            <constraint firstItem="3Ab-M5-Q7A" firstAttribute="centerX" secondItem="B8E-0w-VNX" secondAttribute="centerX" id="aoN-d0-IRh"/>
+                            <constraint firstItem="dCR-LV-j6n" firstAttribute="centerX" secondItem="B8E-0w-VNX" secondAttribute="centerX" id="dAa-7l-v64"/>
+                            <constraint firstAttribute="trailing" secondItem="GoF-hq-H4G" secondAttribute="trailing" id="mcg-4s-LIy"/>
+                            <constraint firstItem="GoF-hq-H4G" firstAttribute="leading" secondItem="B8E-0w-VNX" secondAttribute="leading" id="npC-8v-Sk7"/>
+                            <constraint firstItem="GoF-hq-H4G" firstAttribute="top" secondItem="B8E-0w-VNX" secondAttribute="top" id="qba-US-m5k"/>
+                            <constraint firstItem="LMh-YI-u3E" firstAttribute="top" secondItem="GoF-hq-H4G" secondAttribute="bottom" id="rZW-a0-sGN"/>
+                            <constraint firstAttribute="trailing" secondItem="OV4-AR-0h9" secondAttribute="trailing" id="rc0-aB-tee"/>
+                            <constraint firstItem="LMh-YI-u3E" firstAttribute="top" secondItem="OV4-AR-0h9" secondAttribute="bottom" id="ryB-Ln-L1r"/>
+                            <constraint firstItem="3Ab-M5-Q7A" firstAttribute="centerY" secondItem="B8E-0w-VNX" secondAttribute="centerY" id="trQ-3H-zSf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iZF-Aj-eSi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="949" y="788"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg" width="375" height="667"/>
+        <image name="camera_icon_snap" width="29" height="24"/>
+        <image name="chatwith_btn" width="19" height="18"/>
+        <image name="download_snap" width="21" height="24"/>
+        <image name="flash_auto_btn" width="21" height="24"/>
+        <image name="new_snap_btn" width="23" height="18"/>
+        <image name="people-mother-family-father" width="375" height="667"/>
+        <image name="re_snap_btn" width="16" height="16"/>
+        <image name="search_glass_icon" width="13" height="12"/>
+        <image name="send_snap" width="24" height="23"/>
+        <image name="slapchat_icon" width="26" height="26"/>
+        <image name="snap_btn" width="54" height="62"/>
+        <image name="snappysnap_logo" width="233" height="50"/>
+        <image name="timer_btn" width="25" height="25"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="SK2-IG-5Ub"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -1,0 +1,6 @@
+framework module Panel {
+  umbrella header "Panel-umbrella.h"
+
+  export *
+  module * { export * }
+}
