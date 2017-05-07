@@ -44,6 +44,12 @@ class ChatsVC: UIViewController, UITextFieldDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        DataService.shared.listUsers()
+    }
+    
     // MARK: - TextField Delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -57,6 +63,8 @@ class ChatsVC: UIViewController, UITextFieldDelegate {
     
     // MARK: - UI Actions
     @IBAction func newChatButtonTapped(_ sender: Any) {
+        // TODO: Add Chat System
+        //performSegue(withIdentifier: "SingleChatVC", sender: nil)
     }
     
     @IBAction func newSnapButtonTapped(_ sender: Any) {

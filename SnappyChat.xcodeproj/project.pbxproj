@@ -20,6 +20,7 @@
 		F45C6BEB1EA86BEB00D78F86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F45C6BE91EA86BEB00D78F86 /* LaunchScreen.storyboard */; };
 		F467901E1EAC749900C8E9AF /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F467901D1EAC749900C8E9AF /* CameraVC.swift */; };
 		F46790201EAC828C00C8E9AF /* EditImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F467901F1EAC828C00C8E9AF /* EditImageVC.swift */; };
+		F4686C421EBD1A9B00943ABE /* SingleChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4686C411EBD1A9B00943ABE /* SingleChatVC.swift */; };
 		F4A057431EA9AD3600EFA60F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A057421EA9AD3600EFA60F /* LoginVC.swift */; };
 		F4A0574B1EA9B0AF00EFA60F /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A0574A1EA9B0AF00EFA60F /* RoundedTextField.swift */; };
 		F4A0574D1EA9B1C200EFA60F /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A0574C1EA9B1C200EFA60F /* RoundedButton.swift */; };
@@ -49,6 +50,7 @@
 		F45C6BEC1EA86BEB00D78F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F467901D1EAC749900C8E9AF /* CameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		F467901F1EAC828C00C8E9AF /* EditImageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditImageVC.swift; sourceTree = "<group>"; };
+		F4686C411EBD1A9B00943ABE /* SingleChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleChatVC.swift; sourceTree = "<group>"; };
 		F4A057421EA9AD3600EFA60F /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F4A0574A1EA9B0AF00EFA60F /* RoundedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		F4A0574C1EA9B1C200EFA60F /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				F420A6141EABF02700A6FEBD /* MainVC.swift */,
 				F4A057421EA9AD3600EFA60F /* LoginVC.swift */,
 				F420A6101EABBED600A6FEBD /* ChatsVC.swift */,
+				F4686C411EBD1A9B00943ABE /* SingleChatVC.swift */,
 				F467901D1EAC749900C8E9AF /* CameraVC.swift */,
 				F420A6121EABBEE500A6FEBD /* SettingsVC.swift */,
 				F467901F1EAC828C00C8E9AF /* EditImageVC.swift */,
@@ -303,6 +306,7 @@
 			files = (
 				F420A6131EABBEE500A6FEBD /* SettingsVC.swift in Sources */,
 				F420A6111EABBED600A6FEBD /* ChatsVC.swift in Sources */,
+				F4686C421EBD1A9B00943ABE /* SingleChatVC.swift in Sources */,
 				F4105E471EB0044100011675 /* ChatCell.swift in Sources */,
 				F4CB080A1EB2C13B00480E97 /* DataSource.swift in Sources */,
 				F4A0574D1EA9B1C200EFA60F /* RoundedButton.swift in Sources */,

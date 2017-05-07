@@ -10,6 +10,65 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Single ChatVC-->
+        <scene sceneID="1Wx-oG-yfn">
+            <objects>
+                <viewController id="dwp-tQ-x4T" customClass="SingleChatVC" customModule="SnappyChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G9v-S6-qaI"/>
+                        <viewControllerLayoutGuide type="bottom" id="QA0-mp-gPm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hmW-et-2SG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcF-xk-egH">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nK5-2P-aPN">
+                                        <rect key="frame" x="289" y="20" width="23" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="23" id="2el-8u-GAY"/>
+                                            <constraint firstAttribute="height" constant="22" id="UPW-dF-gxc"/>
+                                        </constraints>
+                                        <state key="normal" image="RightChevron"/>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="dwp-tQ-x4T" eventType="touchUpInside" id="TdY-Sp-L5U"/>
+                                            <action selector="newSnapButtonTapped:" destination="jpf-fb-xE4" eventType="touchUpInside" id="I7q-Of-be7"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SnappySnap" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIv-kL-cKc">
+                                        <rect key="frame" x="97" y="14" width="127" height="31"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ADC-65-DbM"/>
+                                    <constraint firstAttribute="bottom" secondItem="SIv-kL-cKc" secondAttribute="bottom" constant="5" id="Z4T-FX-kD2"/>
+                                    <constraint firstItem="SIv-kL-cKc" firstAttribute="centerX" secondItem="zcF-xk-egH" secondAttribute="centerX" id="eOJ-Jq-zrT"/>
+                                    <constraint firstItem="nK5-2P-aPN" firstAttribute="bottom" secondItem="zcF-xk-egH" secondAttribute="bottomMargin" id="qM8-si-zU0"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="nK5-2P-aPN" secondAttribute="trailing" id="uEQ-Pc-V56"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zcF-xk-egH" firstAttribute="leading" secondItem="hmW-et-2SG" secondAttribute="leading" id="9df-mc-aCa"/>
+                            <constraint firstAttribute="trailing" secondItem="zcF-xk-egH" secondAttribute="trailing" id="TfW-3f-eHe"/>
+                            <constraint firstItem="zcF-xk-egH" firstAttribute="top" secondItem="hmW-et-2SG" secondAttribute="top" id="jLB-92-TTL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="nK5-2P-aPN" id="fLa-RP-3Sb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0MN-JB-QGR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1924" y="37"/>
+        </scene>
         <!--ChatsVC-->
         <scene sceneID="yG5-sK-qux">
             <objects>
@@ -34,6 +93,7 @@
                                         <state key="normal" image="chatwith_btn"/>
                                         <connections>
                                             <action selector="newChatButtonTapped:" destination="jpf-fb-xE4" eventType="touchUpInside" id="zYf-ag-KMI"/>
+                                            <segue destination="dwp-tQ-x4T" kind="show" identifier="SingleChatVC" id="BDb-aG-m2W"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKG-qQ-JQQ">
@@ -103,6 +163,28 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EOA-U3-fWK" id="32t-ej-Kke">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="39.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messageindicator1" translatesAutoresizingMaskIntoConstraints="NO" id="JCV-bI-wwT">
+                                                    <rect key="frame" x="16" y="9" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="D4y-o7-tsl"/>
+                                                        <constraint firstAttribute="height" constant="20" id="stG-Nr-emy"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humberto Alejandro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEJ-Gg-AFM">
+                                                    <rect key="frame" x="44" y="8.5" width="236" height="22"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="JCV-bI-wwT" firstAttribute="leading" secondItem="32t-ej-Kke" secondAttribute="leadingMargin" constant="8" id="2fr-cN-fhN"/>
+                                                <constraint firstItem="AEJ-Gg-AFM" firstAttribute="leading" secondItem="JCV-bI-wwT" secondAttribute="trailing" constant="8" id="Btg-pL-g1p"/>
+                                                <constraint firstItem="AEJ-Gg-AFM" firstAttribute="centerY" secondItem="32t-ej-Kke" secondAttribute="centerY" id="TZe-Fv-oVB"/>
+                                                <constraint firstItem="JCV-bI-wwT" firstAttribute="centerY" secondItem="32t-ej-Kke" secondAttribute="centerY" id="YZs-7d-dbT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="AEJ-Gg-AFM" secondAttribute="trailing" constant="32" id="rZb-J8-cdY"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -579,11 +661,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="RightChevron" width="13" height="21"/>
         <image name="bg" width="375" height="667"/>
         <image name="camera_icon_snap" width="29" height="24"/>
         <image name="chatwith_btn" width="19" height="18"/>
         <image name="download_snap" width="21" height="24"/>
         <image name="flash_auto_btn" width="21" height="24"/>
+        <image name="messageindicator1" width="15" height="15"/>
         <image name="new_snap_btn" width="23" height="18"/>
         <image name="people-mother-family-father" width="375" height="667"/>
         <image name="re_snap_btn" width="16" height="16"/>
