@@ -235,6 +235,7 @@ class EditImageVC: UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
             if let vc = segue.destination as? SelectUsersVC {
                 if let image = sender as? UIImage {
                     vc.imageToSend = image
+                    vc.imageCounter = timer
                 }
             }
         }

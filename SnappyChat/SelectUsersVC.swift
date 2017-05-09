@@ -19,9 +19,10 @@ class SelectUsersVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
     
     // MARK: - Class Properties
     var imageToSend: UIImage!
+    var imageCounter: Int!
     private var usersList = [String]()
     private var usersNames = [String]()
-    private var selectedCells = [UITableViewCell]()
+    private var selectedCells = [UserCell]()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -67,12 +68,6 @@ class SelectUsersVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             }
         })
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-    }
 
     // MARK: - UI Actions
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -80,7 +75,31 @@ class SelectUsersVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
     }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
-        print(selectedCells.debugDescription)
+        
+        // Upload the image
+        let finalImg = UIImageJPEGRepresentation(imageToSend, 0.2)
+        let uuid = UUID().uuidString
+        let meta = FIRStorageMetadata(dictionary: ["contentType": "image/jpeg"])
+        
+        DataService.shared.snapsStorageReference.child(uuid).put(finalImg!, metadata: meta) { (metadata, error) in
+            if let error = error {
+                print("DONKEY: Error trying to upload image to server - \(error.localizedDescription)")
+            } else if let downloadURL = metadata?.downloadURL() {
+                var selectedUsers = [String]()
+                for selectedUser in self.selectedCells {
+                    selectedUsers.append(selectedUser.userId)
+                }
+                
+                let snap = Snap(counter: self.imageCounter, image: downloadURL.absoluteString, targets: selectedUsers)
+                
+                var snapData = Dictionary<String, AnyObject>()
+                snapData["counter"] = snap.counter as AnyObject
+                snapData["image"] = snap.image as AnyObject
+                snapData["targets"] = snap.targetsDict as AnyObject
+                DataService.shared.snapsReference.childByAutoId().setValue(snapData)
+            }
+        }
+        
         performSegue(withIdentifier: "MainVC", sender: self)
     }
     
