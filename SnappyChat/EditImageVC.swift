@@ -21,6 +21,8 @@ class EditImageVC: UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     @IBOutlet weak var timePicker: UIPickerView!
     @IBOutlet weak var timePickerBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageCaptionYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageSavedLabel: UILabel!
+    @IBOutlet weak var imageSavedTopConstraint: NSLayoutConstraint!
     
     // MARK: - Class Members
     var image: UIImage?
@@ -43,6 +45,7 @@ class EditImageVC: UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         imageView.image = image
         imageCaption.delegate = self
         imageCaption.isHidden = true
+        imageSavedLabel.isHidden = true
         
         let panImageCaptionGesture = UIPanGestureRecognizer(target: self, action: #selector(shouldDragImageCaption))
         imageCaption.addGestureRecognizer(panImageCaptionGesture)
@@ -87,7 +90,7 @@ class EditImageVC: UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     @IBAction func sendButtonTapped(_ sender: Any) {
         let newImage = imageCaption.isHidden ? image! : createExportableImage(image: image!, text: imageCaption.text as NSString)
         
-        print(newImage.debugDescription)
+        performSegue(withIdentifier: "SelectUsersVC", sender: newImage)
     }
     
     @IBAction func timerButtonTapped(_ sender: Any) {
@@ -102,6 +105,7 @@ class EditImageVC: UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         
         let newImage = imageCaption.isHidden ? image! : createExportableImage(image: image!, text: imageCaption.text as NSString)
         UIImageWriteToSavedPhotosAlbum(newImage, nil, nil, nil)
+        shouldDisplayImageSavedNotice()
     }
     
     // MARK: - Class Methods
@@ -126,6 +130,23 @@ class EditImageVC: UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         } else {
             shouldShowImageCaption()
         }
+    }
+    
+    func shouldDisplayImageSavedNotice() {
+        imageSavedLabel.isHidden = false
+        UIView.animate(withDuration: 0.5, animations: {
+            self.imageSavedTopConstraint.constant = 20
+            self.view.layoutIfNeeded()
+        }, completion: { (completed) in
+            
+            UIView.animate(withDuration: 0.5, delay: 2, options: .curveLinear, animations: {
+                self.imageSavedTopConstraint.constant = -80
+                self.view.layoutIfNeeded()
+            }, completion: { (completed) in
+                self.imageSavedLabel.isHidden = true
+            })
+        })
+        
     }
     
     func shouldDragImageCaption(sender: UIPanGestureRecognizer) {
@@ -207,14 +228,16 @@ class EditImageVC: UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         return maxValue * percent / 100
     }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "SelectUsersVC" {
+            if let vc = segue.destination as? SelectUsersVC {
+                if let image = sender as? UIImage {
+                    vc.imageToSend = image
+                }
+            }
+        }
     }
-    */
 
 }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		00061BE0270255A9FF85EEB7 /* Pods_SnappyChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9C9C639017CBC35842E299 /* Pods_SnappyChat.framework */; };
 		F4105E451EAFFA8900011675 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4105E441EAFFA8900011675 /* SearchTextField.swift */; };
-		F4105E471EB0044100011675 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4105E461EB0044100011675 /* ChatCell.swift */; };
+		F4105E471EB0044100011675 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4105E461EB0044100011675 /* UserCell.swift */; };
 		F4105E491EB0120700011675 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4105E481EB0120700011675 /* RoundedImageView.swift */; };
 		F420A6111EABBED600A6FEBD /* ChatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420A6101EABBED600A6FEBD /* ChatsVC.swift */; };
 		F420A6131EABBEE500A6FEBD /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420A6121EABBEE500A6FEBD /* SettingsVC.swift */; };
@@ -24,11 +24,13 @@
 		F4A057431EA9AD3600EFA60F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A057421EA9AD3600EFA60F /* LoginVC.swift */; };
 		F4A0574B1EA9B0AF00EFA60F /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A0574A1EA9B0AF00EFA60F /* RoundedTextField.swift */; };
 		F4A0574D1EA9B1C200EFA60F /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A0574C1EA9B1C200EFA60F /* RoundedButton.swift */; };
-		F4CB080A1EB2C13B00480E97 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CB08091EB2C13B00480E97 /* DataSource.swift */; };
+		F4CB080A1EB2C13B00480E97 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CB08091EB2C13B00480E97 /* DataService.swift */; };
 		F4CB080C1EB2C25300480E97 /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CB080B1EB2C25300480E97 /* Snap.swift */; };
 		F4CB080E1EB2C26100480E97 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CB080D1EB2C26100480E97 /* User.swift */; };
 		F4CB08101EB2C26C00480E97 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CB080F1EB2C26C00480E97 /* Chat.swift */; };
 		F4CB08141EB2CB1E00480E97 /* ExpandButtonTapArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CB08131EB2CB1E00480E97 /* ExpandButtonTapArea.swift */; };
+		F4D5F1571EBFDB9B00DCCE5E /* RoundedNoticeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5F1561EBFDB9B00DCCE5E /* RoundedNoticeLabel.swift */; };
+		F4D5F1591EBFE1CC00DCCE5E /* SelectUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5F1581EBFE1CC00DCCE5E /* SelectUsersVC.swift */; };
 		F4F691CC1EAB135500038DD6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4F691CB1EAB135500038DD6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +39,7 @@
 		89452AE63BB112A84B0C3DB4 /* Pods-SnappyChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnappyChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnappyChat/Pods-SnappyChat.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9C9C639017CBC35842E299 /* Pods_SnappyChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnappyChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4105E441EAFFA8900011675 /* SearchTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
-		F4105E461EB0044100011675 /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		F4105E461EB0044100011675 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		F4105E481EB0120700011675 /* RoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		F420A6101EABBED600A6FEBD /* ChatsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsVC.swift; sourceTree = "<group>"; };
 		F420A6121EABBEE500A6FEBD /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
@@ -54,11 +56,13 @@
 		F4A057421EA9AD3600EFA60F /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F4A0574A1EA9B0AF00EFA60F /* RoundedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		F4A0574C1EA9B1C200EFA60F /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
-		F4CB08091EB2C13B00480E97 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		F4CB08091EB2C13B00480E97 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		F4CB080B1EB2C25300480E97 /* Snap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
 		F4CB080D1EB2C26100480E97 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F4CB080F1EB2C26C00480E97 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		F4CB08131EB2CB1E00480E97 /* ExpandButtonTapArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandButtonTapArea.swift; sourceTree = "<group>"; };
+		F4D5F1561EBFDB9B00DCCE5E /* RoundedNoticeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedNoticeLabel.swift; sourceTree = "<group>"; };
+		F4D5F1581EBFE1CC00DCCE5E /* SelectUsersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectUsersVC.swift; sourceTree = "<group>"; };
 		F4F691CB1EAB135500038DD6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +149,7 @@
 				F467901D1EAC749900C8E9AF /* CameraVC.swift */,
 				F420A6121EABBEE500A6FEBD /* SettingsVC.swift */,
 				F467901F1EAC828C00C8E9AF /* EditImageVC.swift */,
+				F4D5F1581EBFE1CC00DCCE5E /* SelectUsersVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -155,8 +160,9 @@
 				F4A0574A1EA9B0AF00EFA60F /* RoundedTextField.swift */,
 				F4A0574C1EA9B1C200EFA60F /* RoundedButton.swift */,
 				F4105E441EAFFA8900011675 /* SearchTextField.swift */,
-				F4105E461EB0044100011675 /* ChatCell.swift */,
+				F4105E461EB0044100011675 /* UserCell.swift */,
 				F4105E481EB0120700011675 /* RoundedImageView.swift */,
+				F4D5F1561EBFDB9B00DCCE5E /* RoundedNoticeLabel.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -174,7 +180,7 @@
 		F4CB08081EB2C12300480E97 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				F4CB08091EB2C13B00480E97 /* DataSource.swift */,
+				F4CB08091EB2C13B00480E97 /* DataService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -307,8 +313,8 @@
 				F420A6131EABBEE500A6FEBD /* SettingsVC.swift in Sources */,
 				F420A6111EABBED600A6FEBD /* ChatsVC.swift in Sources */,
 				F4686C421EBD1A9B00943ABE /* SingleChatVC.swift in Sources */,
-				F4105E471EB0044100011675 /* ChatCell.swift in Sources */,
-				F4CB080A1EB2C13B00480E97 /* DataSource.swift in Sources */,
+				F4105E471EB0044100011675 /* UserCell.swift in Sources */,
+				F4CB080A1EB2C13B00480E97 /* DataService.swift in Sources */,
 				F4A0574D1EA9B1C200EFA60F /* RoundedButton.swift in Sources */,
 				F4CB08101EB2C26C00480E97 /* Chat.swift in Sources */,
 				F467901E1EAC749900C8E9AF /* CameraVC.swift in Sources */,
@@ -316,10 +322,12 @@
 				F4105E451EAFFA8900011675 /* SearchTextField.swift in Sources */,
 				F4CB080E1EB2C26100480E97 /* User.swift in Sources */,
 				F46790201EAC828C00C8E9AF /* EditImageVC.swift in Sources */,
+				F4D5F1571EBFDB9B00DCCE5E /* RoundedNoticeLabel.swift in Sources */,
 				F4CB08141EB2CB1E00480E97 /* ExpandButtonTapArea.swift in Sources */,
 				F4105E491EB0120700011675 /* RoundedImageView.swift in Sources */,
 				F420A6171EABF02700A6FEBD /* MainVC.swift in Sources */,
 				F4CB080C1EB2C25300480E97 /* Snap.swift in Sources */,
+				F4D5F1591EBFE1CC00DCCE5E /* SelectUsersVC.swift in Sources */,
 				F4A057431EA9AD3600EFA60F /* LoginVC.swift in Sources */,
 				F4A0574B1EA9B0AF00EFA60F /* RoundedTextField.swift in Sources */,
 			);

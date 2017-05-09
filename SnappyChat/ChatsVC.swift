@@ -47,7 +47,8 @@ class ChatsVC: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        DataService.shared.listUsers()
+        // TODO: Setup the Searchbar with the list of users
+        //DataService.shared.listUsers()
     }
     
     // MARK: - TextField Delegate

@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SnappyChat.xcodeproj">
+      location = "group:/Users/isomi/Dropbox/iOS/SnappySnap/SnappyChat.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
