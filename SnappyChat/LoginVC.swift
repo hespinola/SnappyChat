@@ -32,6 +32,8 @@ class LoginVC: UIViewController {
             if let error = error {
                 print("DONKEY: Error trying to authenticate with Firebase: \(error.localizedDescription)")
             } else {
+            DataService.shared.usersReference.child((FIRAuth.auth()?.currentUser?.uid)!).child("display_name").setValue(FIRAuth.auth()?.currentUser?.displayName)
+                
                 self.dismiss(animated: true, completion: nil)
             }
         })

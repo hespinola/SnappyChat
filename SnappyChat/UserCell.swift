@@ -29,4 +29,9 @@ class UserCell: UITableViewCell {
         username.text = name
         userId = id
     }
+    
+    func configure(name: String) {
+        username.text = name
+        userId = "NA"
+    }
 }

@@ -90,13 +90,23 @@ class SelectUsersVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
                     selectedUsers.append(selectedUser.userId)
                 }
                 
-                let snap = Snap(counter: self.imageCounter, image: downloadURL.absoluteString, targets: selectedUsers)
+                let snap = Snap(counter: self.imageCounter, image: downloadURL.absoluteString, targets: selectedUsers, senderName: (FIRAuth.auth()?.currentUser?.displayName)!, senderId: (FIRAuth.auth()?.currentUser?.uid)!)
                 
                 var snapData = Dictionary<String, AnyObject>()
                 snapData["counter"] = snap.counter as AnyObject
                 snapData["image"] = snap.image as AnyObject
                 snapData["targets"] = snap.targetsDict as AnyObject
-                DataService.shared.snapsReference.childByAutoId().setValue(snapData)
+                snapData["sender"] = snap.sender as AnyObject
+                DataService.shared.snapsReference.childByAutoId().setValue(snapData, withCompletionBlock: { (error, snapRef) in
+                    
+                    if let error = error {
+                        print("DONKEY: Error trying to send Snap: \(error.localizedDescription)")
+                        
+                        let alert = UIAlertController(title: "Oops!", message: "There was an error trying to send your snap. Try again", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                })
             }
         }
         
