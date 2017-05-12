@@ -40,6 +40,16 @@ class CameraVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        if cameraManager.currentCameraStatus() == .accessDenied ||
+            cameraManager.currentCameraStatus() == .noDeviceFound ||
+            cameraManager.currentCameraStatus() == .notDetermined {
+            let alert = UIAlertController(title: "Oops!", message: "Camera is disabled", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
         cameraManager.resumeCaptureSession()
     }
     
@@ -57,10 +67,20 @@ class CameraVC: UIViewController {
     }
     
     @IBAction func changeCameraButtonTapped(_ sender: Any) {
+        if !cameraManager.hasFrontCamera { return }
         cameraManager.cameraDevice = cameraManager.cameraDevice == .back ? .front : .back
     }
     
     @IBAction func flashButtonTapped(_ sender: Any) {
+        
+        // Check if device can use flash
+        if !cameraManager.hasFlash {
+            let alert = UIAlertController(title: "Oops!", message: "Can't use flash", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
         switch (cameraManager.changeFlashMode()) {
             case .off:
                 flashButton.setImage(flashActivatedImage, for: .normal)
