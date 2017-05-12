@@ -29,6 +29,7 @@
 		F4CB08141EB2CB1E00480E97 /* ExpandButtonTapArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CB08131EB2CB1E00480E97 /* ExpandButtonTapArea.swift */; };
 		F4D5F1571EBFDB9B00DCCE5E /* RoundedNoticeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5F1561EBFDB9B00DCCE5E /* RoundedNoticeLabel.swift */; };
 		F4D5F1591EBFE1CC00DCCE5E /* SelectUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5F1581EBFE1CC00DCCE5E /* SelectUsersVC.swift */; };
+		F4F40A4C1EC2DAC200D06B61 /* ViewSnapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F40A4B1EC2DAC200D06B61 /* ViewSnapVC.swift */; };
 		F4F691CC1EAB135500038DD6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4F691CB1EAB135500038DD6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		F4CB08131EB2CB1E00480E97 /* ExpandButtonTapArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandButtonTapArea.swift; sourceTree = "<group>"; };
 		F4D5F1561EBFDB9B00DCCE5E /* RoundedNoticeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedNoticeLabel.swift; sourceTree = "<group>"; };
 		F4D5F1581EBFE1CC00DCCE5E /* SelectUsersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectUsersVC.swift; sourceTree = "<group>"; };
+		F4F40A4B1EC2DAC200D06B61 /* ViewSnapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSnapVC.swift; sourceTree = "<group>"; };
 		F4F691CB1EAB135500038DD6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 				F420A6121EABBEE500A6FEBD /* SettingsVC.swift */,
 				F467901F1EAC828C00C8E9AF /* EditImageVC.swift */,
 				F4D5F1581EBFE1CC00DCCE5E /* SelectUsersVC.swift */,
+				F4F40A4B1EC2DAC200D06B61 /* ViewSnapVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				F46790201EAC828C00C8E9AF /* EditImageVC.swift in Sources */,
 				F4D5F1571EBFDB9B00DCCE5E /* RoundedNoticeLabel.swift in Sources */,
 				F4CB08141EB2CB1E00480E97 /* ExpandButtonTapArea.swift in Sources */,
+				F4F40A4C1EC2DAC200D06B61 /* ViewSnapVC.swift in Sources */,
 				F4105E491EB0120700011675 /* RoundedImageView.swift in Sources */,
 				F420A6171EABF02700A6FEBD /* MainVC.swift in Sources */,
 				F4CB080C1EB2C25300480E97 /* Snap.swift in Sources */,

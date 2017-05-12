@@ -10,6 +10,65 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View SnapVC-->
+        <scene sceneID="Ti8-aZ-Cex">
+            <objects>
+                <viewController id="gFY-5w-rMt" customClass="ViewSnapVC" customModule="SnappyChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bIW-Lf-9GV"/>
+                        <viewControllerLayoutGuide type="bottom" id="cP4-Bc-O76"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OAl-PI-DQZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TrG-48-qCC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cxo-Ld-qfD">
+                                <rect key="frame" x="326" y="36" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="5Xf-uD-iPg"/>
+                                    <constraint firstAttribute="width" constant="25" id="pLN-qZ-jcc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="10"/>
+                                <state key="normal" image="timer_btn"/>
+                                <connections>
+                                    <action selector="timerButtonTapped:" destination="xSD-50-4ro" eventType="touchUpInside" id="CbH-kt-f7F"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMq-l8-VsI">
+                                <rect key="frame" x="332" y="42" width="13" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="Qa7-aZ-cqn"/>
+                                    <constraint firstAttribute="width" constant="13" id="Vds-Cx-PG4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cP4-Bc-O76" firstAttribute="top" secondItem="TrG-48-qCC" secondAttribute="bottom" id="191-Kg-DGB"/>
+                            <constraint firstAttribute="trailing" secondItem="TrG-48-qCC" secondAttribute="trailing" id="2Bd-dJ-fOz"/>
+                            <constraint firstItem="TrG-48-qCC" firstAttribute="leading" secondItem="OAl-PI-DQZ" secondAttribute="leading" id="5S0-Es-4TU"/>
+                            <constraint firstItem="Cxo-Ld-qfD" firstAttribute="top" secondItem="bIW-Lf-9GV" secondAttribute="bottom" constant="16" id="9uW-jE-bki"/>
+                            <constraint firstItem="OMq-l8-VsI" firstAttribute="centerY" secondItem="Cxo-Ld-qfD" secondAttribute="centerY" constant="1" id="Oha-Yy-Lbx"/>
+                            <constraint firstItem="TrG-48-qCC" firstAttribute="top" secondItem="OAl-PI-DQZ" secondAttribute="top" id="Wyz-BY-tee"/>
+                            <constraint firstItem="OMq-l8-VsI" firstAttribute="centerX" secondItem="Cxo-Ld-qfD" secondAttribute="centerX" id="gSa-Kq-rl7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cxo-Ld-qfD" secondAttribute="trailing" constant="8" id="jo8-Hg-Tyn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="snapImageView" destination="TrG-48-qCC" id="Hcc-Tg-l2b"/>
+                        <outlet property="timerLabel" destination="OMq-l8-VsI" id="wUv-On-KUB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cdj-Yj-5Zt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1775.2" y="35.532233883058474"/>
+        </scene>
         <!--ChatsVC-->
         <scene sceneID="yG5-sK-qux">
             <objects>
@@ -57,7 +116,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="40" id="EOA-U3-fWK" customClass="UserCell" customModule="SnappyChat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="40" id="EOA-U3-fWK" customClass="UserCell" customModule="SnappyChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EOA-U3-fWK" id="32t-ej-Kke">
@@ -86,6 +145,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="AEJ-Gg-AFM" secondAttribute="trailing" constant="32" id="rZb-J8-cdY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="username" destination="AEJ-Gg-AFM" id="MVY-oy-f6V"/>
                                         </connections>
@@ -122,6 +182,7 @@
                         <outlet property="newSnapButton" destination="aKG-qQ-JQQ" id="lXQ-dz-mfT"/>
                         <outlet property="noSnapsLabel" destination="1eH-rw-fgH" id="nJt-l3-Gb4"/>
                         <outlet property="tableView" destination="BQb-kC-UED" id="qnc-ao-vdP"/>
+                        <segue destination="gFY-5w-rMt" kind="show" identifier="ViewSnapVC" id="43C-GA-bIU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZu-2k-hl3" userLabel="First Responder" sceneMemberID="firstResponder"/>

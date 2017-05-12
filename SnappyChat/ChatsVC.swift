@@ -21,6 +21,7 @@ class ChatsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var panelDelegate: PanelViewControllerDelegate?
     private var snapsList = [String]()
     private var snapsSender = [String]()
+    private var snapToSend = Dictionary<String, AnyObject>()
     
     // MARK: - View Controller Life Cycle
     override func viewDidLoad() {
@@ -49,15 +50,17 @@ class ChatsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 for snap in snapshot {
                     
                     let dict = snap.value as! Dictionary<String, AnyObject>
-                    let targets = dict["targets"] as! Dictionary<String, AnyObject>
                     
-                    if targets[(FIRAuth.auth()?.currentUser?.uid)!] != nil {
-                        if !self.snapsList.contains(snap.key) {
-                            self.snapsList.append(snap.key)
-                            self.snapsSender.append((dict["sender"]!["display_name"]! as! String))
-                            self.tableView.reloadData()
+                    if let targets = dict["targets"] as? Dictionary<String, AnyObject> {
+                        if targets[(FIRAuth.auth()?.currentUser?.uid)!] != nil {
+                            if !self.snapsList.contains(snap.key) {
+                                self.snapsList.append(snap.key)
+                                self.snapsSender.append((dict["sender"]!["display_name"]! as! String))
+                                self.tableView.reloadData()
+                            }
                         }
                     }
+                    
                 }
             }
         })
@@ -87,9 +90,73 @@ class ChatsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        addLoadingAnimation()
+        DataService.shared.snapsReference.child(snapsList[indexPath.row]).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let snapData = snapshot.value as? Dictionary<String, AnyObject> {
+                let counter = snapData["counter"] as! Int
+                let imageRef = snapData["image"] as! String
+                
+                self.snapToSend["snapId"] = self.snapsList[indexPath.row] as AnyObject
+                self.snapToSend["snapRef"] = DataService.shared.databaseReference.child(self.snapsList[indexPath.row])
+                self.snapToSend["counter"] = counter as AnyObject
+                
+                DataService.shared.storage.reference(forURL: imageRef).data(withMaxSize: DataService.shared.MAX_DOWNLOAD_SIZE, completion: { (data, error) in
+                    if let error = error {
+                        print("DONKEY: Error trying to Download Data from Firebase - \(error.localizedDescription)")
+                        self.removeLoadingAnimation(shouldPerformSegue: false)
+                        let errorTryingToDownload = UIAlertController(title: "Oops!", message: "There was an error trying to download the snap. Try again", preferredStyle: .alert)
+                        errorTryingToDownload.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(errorTryingToDownload, animated: true, completion: nil)
+                    } else {
+                        let image = UIImage(data: data!)
+                        self.snapToSend["imageRef"] = DataService.shared.storage.reference(forURL: imageRef)
+                        self.snapToSend["image"] = image!
+                        self.removeLoadingAnimation(shouldPerformSegue: true)
+                    }
+                })
+            }
+        })
+    }
+    
+    // MARK: - Class Methods
+    func addLoadingAnimation() {
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = .gray
+        loadingIndicator.startAnimating()
+        
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func removeLoadingAnimation(shouldPerformSegue: Bool) {
+        dismiss(animated: true, completion: {
+            if shouldPerformSegue {
+                self.performSegue(withIdentifier: "ViewSnapVC", sender: self.snapToSend)
+            }
+        })
+    }
+    
     // MARK: - UI Actions
     @IBAction func newSnapButtonTapped(_ sender: Any) {
         panelDelegate?.PanelViewControllerAnimateTo(panel: .center)
     }
     
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ViewSnapVC" {
+            if let vc = segue.destination as? ViewSnapVC {
+                if let object = sender as? Dictionary<String, AnyObject> {
+                    vc.counter = object["counter"] as! Int
+                    vc.image = object["image"] as! UIImage
+                    vc.snapId = object["snapId"] as! String
+                    vc.imageReference = object["imageRef"] as! FIRStorageReference
+                    vc.snapRef = object["snapRef"] as! FIRDatabaseReference
+                }
+            }
+        }
+    }
 }

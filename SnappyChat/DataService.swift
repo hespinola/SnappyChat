@@ -18,7 +18,8 @@ public class DataService {
     private let REF_SNAPS: FIRDatabaseReference!
     private let REF_STORAGE: FIRStorageReference!
     private let REF_SNAPS_STORAGE: FIRStorageReference!
-    
+    private let _STORAGE: FIRStorage!
+    private let _MAX_DOWNLOAD_SIZE: Int64!
     
     public static var shared: DataService {
         return _shared
@@ -44,6 +45,14 @@ public class DataService {
         return REF_SNAPS_STORAGE
     }
     
+    var storage: FIRStorage {
+        return _STORAGE
+    }
+    
+    var MAX_DOWNLOAD_SIZE: Int64 {
+        return _MAX_DOWNLOAD_SIZE
+    }
+    
     // MARK: - Class Methods
     init() {
         REF_DATABASE = FIRDatabase.database().reference()
@@ -51,5 +60,7 @@ public class DataService {
         REF_SNAPS = REF_DATABASE.child("snaps")
         REF_STORAGE = FIRStorage.storage().reference()
         REF_SNAPS_STORAGE = REF_STORAGE.child("snaps")
+        _STORAGE = FIRStorage.storage()
+        _MAX_DOWNLOAD_SIZE = 1 * 1024 * 1024
     }
 }
