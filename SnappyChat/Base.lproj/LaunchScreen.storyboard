@@ -21,18 +21,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snappysnap_logo" translatesAutoresizingMaskIntoConstraints="NO" id="RLR-Ra-h4o">
-                                <rect key="frame" x="74.5" y="308" width="226" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="226" id="AMc-ba-jwf"/>
-                                    <constraint firstAttribute="height" constant="50" id="FSB-ib-jWp"/>
-                                </constraints>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BK2-Bt-Zg8">
+                                <rect key="frame" x="96.5" y="190.5" width="182" height="286"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="200"/>
+                                <state key="normal" title="M">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RLR-Ra-h4o" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="C4Q-RH-0fg"/>
-                            <constraint firstItem="RLR-Ra-h4o" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Odd-lR-GrG"/>
+                            <constraint firstItem="BK2-Bt-Zg8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="b2N-A0-k0e"/>
+                            <constraint firstItem="BK2-Bt-Zg8" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="dCt-L3-XK8"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -41,7 +41,4 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="snappysnap_logo" width="233" height="50"/>
-    </resources>
 </document>

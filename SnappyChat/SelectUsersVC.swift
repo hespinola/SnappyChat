@@ -154,7 +154,7 @@ class SelectUsersVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? UserCell else { return }
         
-        cell.selectedStatus.image = UIImage(named: "messagefilled1")
+        cell.selectedStatus.image = UIImage(named: "messageindicator3")
         selectedCells.append(cell)
         
         if selectedCells.count == 1 {
@@ -165,7 +165,7 @@ class SelectUsersVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? UserCell else { return }
         
-        cell.selectedStatus.image = UIImage(named: "messageindicator1")
+        cell.selectedStatus.image = UIImage(named: "messageindicator2")
         selectedCells.remove(at: selectedCells.index(of: cell)!)
         
         if selectedCells.count < 1 {
