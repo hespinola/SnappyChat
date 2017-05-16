@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Panel
 import CameraManager
 
 class CameraVC: UIViewController {
@@ -16,11 +17,14 @@ class CameraVC: UIViewController {
     @IBOutlet weak var snapButton: UIButton!
     @IBOutlet weak var changeCameraButton: UIButton!
     @IBOutlet weak var flashButton: UIButton!
+    @IBOutlet weak var leftPanelButton: UIButton!
+    @IBOutlet weak var rightPanelButton: UIButton!
     
     // MARK: - Class Members
     private let cameraManager = CameraManager()
     private var flashActivatedImage: UIImage!
     private var flashAutoImage: UIImage!
+    var panelDelegate: PanelViewControllerDelegate?
     
     // MARK: - Override controller life-cycle
     override func viewDidLoad() {
@@ -59,11 +63,17 @@ class CameraVC: UIViewController {
     }
     
     @IBAction func snapButtonTapped(_ sender: Any) {
-        cameraManager.capturePictureWithCompletion({ (image, error) in
-            if let image = image {
-                self.performSegue(withIdentifier: "EditImageVC", sender: image)
-            }
-        })
+        if cameraManager.cameraIsReady {
+            cameraManager.capturePictureWithCompletion({ (image, error) in
+                if let image = image {
+                    self.performSegue(withIdentifier: "EditImageVC", sender: image)
+                }
+            })
+        } else {
+            let alert = UIAlertController(title: "Oops!", message: "Camera is not available", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func changeCameraButtonTapped(_ sender: Any) {
@@ -97,6 +107,14 @@ class CameraVC: UIViewController {
                 flashButton.alpha = 1
                 break
         }
+    }
+    
+    @IBAction func leftPanelButtonTapped(_ sender: Any) {
+        panelDelegate?.PanelViewControllerAnimateTo(panel: .left)
+    }
+    
+    @IBAction func rightPanelButtonTapped(_ sender: Any) {
+        panelDelegate?.PanelViewControllerAnimateTo(panel: .right)
     }
 
     

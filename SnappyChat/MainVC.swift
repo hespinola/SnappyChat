@@ -46,6 +46,7 @@ class MainVC: PanelViewController, PanelViewControllerDataSource {
         chatsVC.panelDelegate = self
         
         let cameraVC = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraVC
+        cameraVC.panelDelegate = self
         
         let settingsVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
         settingsVC.panelDelegate = self

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jpf-fb-xE4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -192,7 +192,7 @@
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="SnappyChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" id="BYZ-38-t0r" customClass="MainVC" customModule="SnappyChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -543,7 +543,37 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OuS-rp-YCZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqH-4H-23f">
+                                        <rect key="frame" x="16" y="273" width="13" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="13" id="cdA-c1-HWN"/>
+                                            <constraint firstAttribute="height" constant="22" id="gNb-rU-p7A"/>
+                                        </constraints>
+                                        <state key="normal" image="LeftChevron"/>
+                                        <connections>
+                                            <action selector="leftPanelButtonTapped:" destination="vFT-8h-evt" eventType="touchUpInside" id="vfN-H3-rfy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qt1-XV-GEC">
+                                        <rect key="frame" x="291" y="273" width="13" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="13" id="7dW-Mz-J5Z"/>
+                                            <constraint firstAttribute="height" constant="22" id="Dc9-tx-jrC"/>
+                                        </constraints>
+                                        <state key="normal" image="RightChevron"/>
+                                        <connections>
+                                            <action selector="rightPanelButtonTapped:" destination="vFT-8h-evt" eventType="touchUpInside" id="pxE-48-TzE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="fqH-4H-23f" firstAttribute="leading" secondItem="OuS-rp-YCZ" secondAttribute="leadingMargin" constant="8" id="4wZ-m2-hG6"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="qt1-XV-GEC" secondAttribute="trailing" constant="8" id="DTl-nJ-v9q"/>
+                                    <constraint firstItem="qt1-XV-GEC" firstAttribute="centerY" secondItem="OuS-rp-YCZ" secondAttribute="centerY" id="m3I-IS-mMA"/>
+                                    <constraint firstItem="fqH-4H-23f" firstAttribute="centerY" secondItem="OuS-rp-YCZ" secondAttribute="centerY" id="mZ1-Z6-O3q"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWd-f2-6bW">
                                 <rect key="frame" x="133" y="474" width="54" height="62"/>
@@ -597,6 +627,8 @@
                         <outlet property="cameraView" destination="OuS-rp-YCZ" id="acK-p5-KVa"/>
                         <outlet property="changeCameraButton" destination="hdL-FX-Bwf" id="lvD-Ws-d7I"/>
                         <outlet property="flashButton" destination="vSe-Sf-4JA" id="QYD-KC-fWy"/>
+                        <outlet property="leftPanelButton" destination="fqH-4H-23f" id="P0h-k0-hQl"/>
+                        <outlet property="rightPanelButton" destination="qt1-XV-GEC" id="0qc-Hs-yZ6"/>
                         <outlet property="snapButton" destination="zWd-f2-6bW" id="aKx-bi-IJf"/>
                         <segue destination="xSD-50-4ro" kind="show" identifier="EditImageVC" id="iqv-YQ-bDT"/>
                     </connections>
@@ -818,6 +850,7 @@
     <resources>
         <image name="Icon-App-60x60" width="60" height="60"/>
         <image name="LeftChevron" width="13" height="22"/>
+        <image name="RightChevron" width="13" height="21"/>
         <image name="camera_icon_snap" width="29" height="24"/>
         <image name="download_snap" width="21" height="24"/>
         <image name="flash_auto_btn" width="21" height="24"/>
@@ -832,6 +865,6 @@
         <image name="timer_btn" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="T6O-G4-Q64"/>
+        <segue reference="SK2-IG-5Ub"/>
     </inferredMetricsTieBreakers>
 </document>

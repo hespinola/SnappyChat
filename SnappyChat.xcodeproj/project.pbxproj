@@ -457,6 +457,7 @@
 				PROVISIONING_PROFILE = "b88aadbf-18f6-4ea5-87b4-84f218219e33";
 				PROVISIONING_PROFILE_SPECIFIER = "SnappySnap Dev";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -474,6 +475,7 @@
 				PROVISIONING_PROFILE = "99d64eec-9bb8-44a2-8a5b-e91a7dbc51b5";
 				PROVISIONING_PROFILE_SPECIFIER = "SnappySnap App Store Distribution";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
