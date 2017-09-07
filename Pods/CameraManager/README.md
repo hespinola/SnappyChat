@@ -19,7 +19,7 @@ If you want Swift 3.0 syntax use:
 ```ruby
 use_frameworks!
 
-pod 'CameraManager', '~> 3.1'
+pod 'CameraManager', '~> 3.2'
 ```
 
 If you want Swift 2.0 syntax use:
@@ -49,7 +49,7 @@ import PackageDescription
 
 let package = Package(
     dependencies: [
-        .Package(url: "https://github.com/imaginary-cloud/CameraManager", majorVersion: 2, minor: 2)
+        .Package(url: "https://github.com/imaginary-cloud/CameraManager", majorVersion: 3, minor: 2)
     ]
 )
 ```
@@ -63,7 +63,7 @@ Add the following line to your Cartfile:
 If you want Swift 3.0 syntax use:
 
 ```
-github "imaginary-cloud/CameraManager" >= 3.1
+github "imaginary-cloud/CameraManager" >= 3.2
 ```
 
 If you want Swift 2.0 syntax use:
@@ -92,7 +92,21 @@ cameraManager.cameraDevice = .Front
 cameraManager.cameraDevice = .Back
 ```
 
+You can specify if the front camera image should be horizontally fliped:
+
+```swift
+cameraManager.shouldFlipFrontCameraImage = true
+```
+
+You can enable or disable gestures on camera preview:
+
+```swift
+cameraManager.shouldEnableTapToFocus = true
+cameraManager.shouldEnablePinchToZoom = true
+```
+
 You can set output format to Image, video or video with audio:
+
 ```swift
 cameraManager.cameraOutputMode = .StillImage
 cameraManager.cameraOutputMode = .VideoWithMic
@@ -106,11 +120,22 @@ cameraManager.cameraOutputQuality = .Medium
 cameraManager.cameraOutputQuality = .High
 ```
 
-And flash mode (it will also set corresponding torch mode for video shoot):
+You can specifiy the focus and exposure mode:
+```swift
+cameraManager.focusMode = .continuousAutoFocus 
+cameraManager.exposureMode = .continuousAutoExposure 
+```
+
+You can change the flash mode (it will also set corresponding flash mode):
 ```swift
 cameraManager.flashMode = .Off
 cameraManager.flashMode = .On
 cameraManager.flashMode = .Auto
+```
+
+To enable location services for storing in Camera Roll. Default is false:
+```
+cameraManager.shouldUseLocationServices = true
 ```
 
 To check if the device supports flash call:
@@ -123,10 +148,15 @@ To change flash mode to the next available one you can use this handy function w
 cameraManager.changeFlashMode()
 ```
 
-
 You can specify if you want to save the files to phone library:
 ```swift
 cameraManager.writeFilesToPhoneLibrary = true
+```
+
+You can specify if you want to disable animations:
+```swift
+cameraManager.animateShutter = false
+cameraManager.animateCameraDeviceChange = false
 ```
 
 You can specify if you want the user to be asked about camera permissions automatically when you first try to use the camera or manually:
@@ -170,7 +200,7 @@ cameraManager.stopVideoRecording({ (videoURL, error) -> Void in
 
 ## Support
 
-Supports iOS 8 and above. Xcode 7.0 is required to build the latest code written in Swift 2.0.
+Supports iOS 8 and above. Xcode 8.0 is required to build the latest code written in Swift 3.0.
 
 ## License
 
